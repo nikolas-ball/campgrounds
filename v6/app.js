@@ -104,7 +104,7 @@ app.get("/campgrounds/:id", function(req, res){
 // comments routes
 // =============================================
 
-app.get("/campgrounds/:id/comments/new", function(req, res){
+app.get("/campgrounds/:id/comments/new", isLoggedIn, function(req, res){
 	//find campground by ID
 	Campground.findById(req.params.id, function(err, campground){
 		if(err) {
@@ -115,7 +115,7 @@ app.get("/campgrounds/:id/comments/new", function(req, res){
 	});
 });
 
-app.post("/campgrounds/:id/comments", function(req, res){
+app.post("/campgrounds/:id/comments", isLoggedIn,function(req, res){
 	//lookup camground using ID
 	Campground.findById(req.params.id, function(err, camground){
 		if(err){
@@ -146,18 +146,42 @@ app.get("/register", function(req, res){
 });
 //handle sign up logic
 app.post("/register", function(req, res){
-	var newUser({username: req.body.username});
+	var newUser = new User({username: req.body.username});
 	User.register(newUser, req.body.password, function(err, user){
 		if(err){
 			console.log(err);
 			return res.render("register");
 		}
 		passport.authenticate("local")(req, res, function(){
-			res.redirect("/camgrounds");
+			res.redirect("/campgrounds");
 		});
 	});
 });
 
+//show login form
+app.get("/login", function(req, res){
+	res.render("login");
+});
+// handling login logic
+app.post("/login", passport.authenticate("local", 
+	{
+		successRedirect: "/camgrounds",
+		failureRedirect: "/login"
+	}), function(req, res){
+});
+
+//logic route
+app.get("/logout", function(req, res){
+	req.logout();
+	res.redirect("/camgrounds");
+});
+
+function isLoggedIn(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	}
+	res.redirect("/login");
+}
 
 app.listen(process.env.PORT, process.env.IP, function(){
 	console.log("The campgrounds server has started!");
