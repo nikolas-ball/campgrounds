@@ -1,7 +1,7 @@
 {
   "name": "campgrounds",
-  "version": "2.0.0",
-  "description": "campgrounds v2",
+  "version": "11.0.0",
+  "description": "campgrounds v11",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
