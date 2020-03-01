@@ -13,6 +13,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 		} else {
 			res.render("comments/new", {campground: campground});
 		}
+	});
 });
 
 // comments create
@@ -24,8 +25,8 @@ router.post("/", middleware.isLoggedIn,function(req, res){
 			res.redirect("/campgrounds");
 		} else {
 			Comment.create(req.body.comment, function(err, comment){
-				req.flash("error", "Something Went Wrong");
 				if(err){
+					req.flash("error", "Something Went Wrong");
 					console.log(err);
 				} else {
 					//add username and id to comment
