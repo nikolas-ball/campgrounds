@@ -15,6 +15,7 @@ var seedDB = require("./seeds");
 var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
+var url = process.env.MONGOLAB_URI;
 
 mongoose.connect(process.env.MONGOLAB_URI, {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
