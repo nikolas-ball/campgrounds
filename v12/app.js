@@ -15,9 +15,11 @@ var seedDB = require("./seeds");
 var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
-var url = process.env.MONGOLAB_URI;
-
-mongoose.connect(process.env.MONGOLAB_URI, {useNewUrlParser: true});
+// var url = process.env.MONGOLAB_URI;
+// ***come back and hide MongoDB password in MONGOLAB_URI variable, commented out because it broke the deploy on Heroku
+// mongoose.connect(process.env.MONGOLAB_URI, {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://admin:5Qv8CrHZzeFRmA1A@cluster0-ebyfl.mongodb.net/test?retryWrites=true&w=majority
+", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
