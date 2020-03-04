@@ -1,6 +1,9 @@
 <%- include ("../partials/header") %>
 
 	<div class="container">
+	<% if(currentUser && currentUser.isAdmin) { %>
+		<h4>Admin Only Mode</h4>
+	<%	} %>
 	<header class="jumbotron">
 		<div class="container">
 			<h1>Welcome To <strong><em>campgrounds</em></strong>!</h1>

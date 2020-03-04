@@ -15,7 +15,10 @@ var seedDB = require("./seeds");
 var commentRoutes = require("./routes/comments");
 var campgroundRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
+
+var moment = require("moment");
 // var url = process.env.MONGOLAB_URI;
+
 // ***come back and hide MongoDB password in MONGOLAB_URI variable, commented out because it broke the deploy on Heroku
 // mongoose.connect(process.env.MONGOLAB_URI, {useNewUrlParser: true});
 // mongoose.connect(url, {useNewUrlParser: true});
@@ -27,6 +30,9 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
 // seedDB(); //seed the database
+
+//require moment.js for time since posts
+app.locals.moment = require("moment");
 
 // PASSPORT CONFIGURATION
 app.use(require("express-session")({
