@@ -50,10 +50,10 @@ router.post("/", middleware.isLoggedIn, function(req, res){
         if(err){
             console.log(err);
         } else {
-            //redirect back to the specific campgrounds' page
+            //redirect back to the specific campgrounds' page -- need todo that
             // console.log(newlyCreated);
 			req.flash("success", "Successfully Created!");
-            res.redirect("/campgrounds/" + campground._id);
+            res.redirect("/campgrounds");
         }
     });
   });
