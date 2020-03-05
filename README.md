@@ -30,6 +30,8 @@ Backend & Dependencies
 * [Cloudinary](https://www.npmjs.com/package/cloudinary) - A cloud service that offers a solution to a web application's entire image management pipeline (local image upload).
 * [Multer](https://www.npmjs.com/package/multer) - A node.js middleware for handling multipart/form-data, which is primarily used for uploading files.
 * [Google Maps APIs](https://cloud.google.com/maps-platform/) - A web mapping service developed by Google, and successfully implemented in my deployed web app.
+
+
 Database
 * [MongoDB](https://www.mongodb.com/) - Cross-platform document-oriented database program (NoSQL).
 
@@ -47,7 +49,7 @@ User signup and login with username and password, as well as Admin login with ad
 
 ### Authorization:
 
-A user cannot create new posts without being authenticated, and also a user cannot edit or delete existing posts and comments created by other users. 
+A user cannot create new posts without being authenticated, and also a user cannot edit or delete existing posts and comments created by other users. There is an admin account that is the sole account to have unlimited CRUD permissions for every user post and comment on the app. This was a custom addition as well.
 
 ### Functionalities Of Posts & Comments:
 
@@ -55,7 +57,7 @@ Create, view, edit and delete posts and comments, upload campground photos from 
 
 ### Custom Enhancements
 
-Included Google APIs with developer account, used Google Fonts and Font Awesome resources instead of default font families, merged the comment show page into a single campground show page to be more user friendly, also included extensive UI customizations of the app. Furthermore, implemented creation and update timestamps for posts and comments. Dynamic pricing of campground posts was added.
+Included Google APIs with developer account, used Google Fonts and Font Awesome resources instead of default font families, merged the comment show page into a single campground show page to be more user friendly, also included extensive UI customizations of the app. Furthermore, implemented creation and update timestamps for posts and comments. Dynamic pricing of campground posts was added. 
 
 
 ## Author Of The Original Concept
