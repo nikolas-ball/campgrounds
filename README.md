@@ -45,7 +45,7 @@ Deployment
 ### Responsive Design
 ### Authentication:
 
-User signup and login with username and password, as well as Admin login with admin username and password.
+User signup and login with username and password, as well as Admin login with admin username and password. Password is hashed securely on MongoDB database.
 
 ### Authorization:
 
